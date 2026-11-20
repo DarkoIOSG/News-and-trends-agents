@@ -1,4 +1,5 @@
 # Add, remove, or disable sources here. See README.md for each source type.
+max_age_hours: 168
 sources:
   - id: hf-ai-papers
     type: hf_daily_papers
@@ -31,6 +32,67 @@ sources:
       - accelerator
       - hardware
       - scaling
+      - deepseek
+      - qwen
+      - kimi
+
+  - id: alphaxiv-hot
+    type: alphaxiv
+    name: alphaXiv Hot
+    enabled: true
+    sort: Hot
+    interval: 7 Days
+    page_size: 100
+    max_pages: 2
+    max_items: 10
+    keywords:
+      - agent
+      - agentic
+      - tool use
+      - inference
+      - serving
+      - compute
+      - training cost
+      - inference cost
+      - latency
+      - throughput
+      - gpu
+      - accelerator
+      - hardware
+      - scaling
+      - deepseek
+      - qwen
+      - kimi
+
+  - id: arxiv-ai-categories
+    type: arxiv
+    name: arXiv AI and systems
+    enabled: true
+    categories:
+      - cs.LG
+      - cs.CL
+      - cs.DC
+    window_days: 7
+    max_results_per_category: 100
+    max_items_per_category: 5
+    request_delay_seconds: 3
+    keywords:
+      - agent
+      - agentic
+      - tool use
+      - inference
+      - serving
+      - compute
+      - training cost
+      - inference cost
+      - latency
+      - throughput
+      - gpu
+      - accelerator
+      - hardware
+      - scaling
+      - quantization
+      - mixture of experts
       - deepseek
       - qwen
       - kimi

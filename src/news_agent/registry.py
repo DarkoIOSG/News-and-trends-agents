@@ -1,5 +1,7 @@
 from news_agent.sources.imap_newsletter import IMAPNewsletterAdapter
 from news_agent.sources.huggingface_papers import HuggingFacePapersAdapter
+from news_agent.sources.alphaxiv import AlphaXivAdapter
+from news_agent.sources.arxiv import ArxivAdapter
 from news_agent.sources.rss import RSSAdapter
 from news_agent.sources.webpage import WebpageAdapter
 from news_agent.sources.x_search import XSearchAdapter
@@ -10,6 +12,8 @@ SOURCE_ADAPTERS = {
     "x_search": XSearchAdapter,
     "imap_newsletter": IMAPNewsletterAdapter,
     "hf_daily_papers": HuggingFacePapersAdapter,
+    "alphaxiv": AlphaXivAdapter,
+    "arxiv": ArxivAdapter,
 }
 
 

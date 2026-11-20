@@ -16,6 +16,8 @@ Supported source types:
 | --- | --- |
 | rss | RSS and Atom feeds, including many newsletters and Substack publications |
 | hf_daily_papers | Trending Hugging Face Daily Papers, filtered by configurable keywords |
+| alphaxiv | alphaXiv Hot feed with votes and recent public comments |
+| arxiv | Recent papers from configured arXiv categories, with keyword filtering |
 | webpage | A specific article URL |
 | x_search | Recent public posts matching an X API v2 search query |
 | imap_newsletter | Unseen messages from an IMAP mailbox, optionally filtered by sender and subject |
@@ -42,6 +44,8 @@ Edit config/sources.yaml. For a feed:
 
 The default configuration enables a Hugging Face Daily Papers source for the current week, sorted by trending score and filtered for agents, inference, serving, compute, GPUs, hardware, and scaling. The public feed does not require a Hugging Face token. Adjust its period (day, week, month), sort order, keywords, or result limits in config/sources.yaml.
 
+The weekly setup also enables alphaXiv's Hot feed for the last seven days and direct arXiv queries for cs.LG, cs.CL, and cs.DC. alphaXiv items include upvotes and up to three recent public comments when available. Its public feed and comment routes are read-only and currently do not require an API key, though alphaXiv does not publish a stable contract for these REST endpoints. arXiv uses its official Atom API and the same configurable keyword filter. arxiv-sanity-lite can still be used for manual personalized filtering; its hosted index may not cover cs.DC.
+
 For X search, use type x_search and a query accepted by the X API. For newsletters delivered by email, enable imap_newsletter; credentials should stay in environment variables. config/sources.example.yaml contains examples of each adapter.
 
 ## Run and schedule
@@ -66,7 +70,7 @@ Add a source object to sources.yaml and set its type; remove it or set enabled: 
 
     config/                 Source configuration
     src/news_agent/
-      sources/              RSS, webpage, X, and IMAP adapters
+      sources/              RSS, HF, alphaXiv, arXiv, webpage, X, and IMAP adapters
       pipeline.py           Collection, dedupe, summarize, delivery
       summarizer.py         Anthropic default and OpenAI alternative
       slack.py              Replaceable delivery boundary
