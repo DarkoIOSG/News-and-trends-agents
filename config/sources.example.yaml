@@ -1,0 +1,48 @@
+sources:
+  - id: hf-ai-papers
+    type: hf_daily_papers
+    name: HF Daily Papers
+    period: week
+    sort: trending
+    api_limit: 100
+    max_pages: 3
+    max_items: 10
+    keywords:
+      - agent
+      - inference
+      - serving
+      - compute
+      - latency
+      - throughput
+      - quantization
+      - mixture of experts
+      - gpu
+      - hardware
+    enabled: true
+
+  - id: openai-blog
+    type: rss
+    name: OpenAI Blog
+    url: https://openai.com/news/rss.xml
+    enabled: false
+    max_items: 10
+  - id: example-x-search
+    type: x_search
+    name: AI research on X
+    query: '(AI OR LLM OR "machine learning") -is:retweet lang:en'
+    enabled: false
+    max_items: 10
+  - id: example-website
+    type: webpage
+    name: Research article
+    url: https://example.com/article
+    enabled: false
+  - id: example-newsletter
+    type: imap_newsletter
+    name: AI newsletter
+    mailbox: INBOX
+    sender: newsletter@example.com
+    subject_contains: AI
+    enabled: false
+    max_items: 10
+
